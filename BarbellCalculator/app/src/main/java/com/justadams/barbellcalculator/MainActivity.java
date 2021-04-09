@@ -26,7 +26,6 @@ public class MainActivity extends WearableActivity {
         inputWeightText = findViewById(R.id.input_weight_text);
         platesOutputText = findViewById(R.id.plates_output_text);
 
-
         calculatePlates();
         // Enables Always-on
         setAmbientEnabled();
@@ -54,6 +53,7 @@ public class MainActivity extends WearableActivity {
 
         String calculatedPlates = "";
 
+        // Iterate through plate array and subtract from remaining weight until no possible plates remain
         for (int i = 0; i < plates.length; i++) {
             while (inputWeight >= plates[i]) {
                 inputWeight -= plates[i];
