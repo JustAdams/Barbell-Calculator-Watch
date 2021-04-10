@@ -8,13 +8,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends WearableActivity {
 
     public EditText inputWeightText;
     public TextView platesOutputText;
 
-    int plates[] = {45, 35, 25, 10, 5};
+    double plates[] = {45, 35, 25, 10, 5, 2.5};
     int barWeight = 45;
+
+    DecimalFormat df;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,8 @@ public class MainActivity extends WearableActivity {
 
         inputWeightText = findViewById(R.id.input_weight_text);
         platesOutputText = findViewById(R.id.plates_output_text);
+
+        df = new DecimalFormat("#.#");
 
         calculatePlates();
         // Enables Always-on
@@ -59,7 +65,7 @@ public class MainActivity extends WearableActivity {
                 inputWeight -= plates[i];
                 neededPlates[i] += 1;
             }
-            calculatedPlates += plates[i] + ": " + neededPlates[i] + "\n";
+            calculatedPlates += df.format(plates[i]) + ": " + neededPlates[i] + "\n";
         }
 
         platesOutputText.setText(calculatedPlates);
