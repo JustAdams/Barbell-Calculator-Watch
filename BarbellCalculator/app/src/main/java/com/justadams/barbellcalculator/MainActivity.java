@@ -15,8 +15,6 @@ public class MainActivity extends WearableActivity {
 
     int plates[] = {45, 35, 25, 10, 5};
     int barWeight = 45;
-    // 45, 35, 25, 10, 5, 2.5
-    int neededPlates[] = {0, 0, 0, 0, 0, 0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +42,8 @@ public class MainActivity extends WearableActivity {
     }
 
     public void calculatePlates() {
+        // 45, 35, 25, 10, 5, 2.5
+        int neededPlates[] = {0, 0, 0, 0, 0, 0};
         // subtract 45 for bar weight, and divide in half to calculate plates on single side
         String inputWeightString = inputWeightText.getText().toString().trim();
         Double inputWeight = inputWeightString.isEmpty() ? 0 : Double.parseDouble(inputWeightString);
@@ -51,7 +51,7 @@ public class MainActivity extends WearableActivity {
         inputWeight -= 45;
         inputWeight /= 2;
 
-        String calculatedPlates = "";
+        String calculatedPlates = "Plates: \n";
 
         // Iterate through plate array and subtract from remaining weight until no possible plates remain
         for (int i = 0; i < plates.length; i++) {

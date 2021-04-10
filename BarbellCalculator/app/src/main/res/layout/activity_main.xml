@@ -10,11 +10,10 @@
     tools:context=".MainActivity"
     tools:deviceIds="wear">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E15383"
-        android:padding="@dimen/inner_frame_layout_padding">
+        android:background="#E15383">
 
         <EditText
             android:id="@+id/input_weight_text"
@@ -22,34 +21,20 @@
             android:layout_height="52dp"
             android:layout_marginTop="4dp"
             android:ems="10"
-            android:gravity="center"
+            android:layout_gravity="center|top"
             android:hint="total weight"
             android:inputType="number"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Plates:"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_weight_text" />
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/plates_output_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
             android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="Plates:"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textSize="18sp" />
+    </FrameLayout>
 </androidx.wear.widget.BoxInsetLayout>
