@@ -36,7 +36,7 @@
             android:gravity="center"
             android:text="Plates"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
     </FrameLayout>
 
 </androidx.wear.widget.BoxInsetLayout>
