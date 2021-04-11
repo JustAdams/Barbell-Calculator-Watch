@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
+    android:background="#9A2921"
     android:padding="@dimen/box_inset_layout_padding"
     tools:context=".MainActivity"
     tools:deviceIds="wear">
@@ -12,8 +12,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#BA7474"
-        android:padding="@dimen/inner_frame_layout_padding">
+        android:padding="@dimen/inner_frame_layout_padding"
+        app:layout_boxedEdges="left|right">
 
         <EditText
             android:id="@+id/weight_input_text"
@@ -25,16 +25,18 @@
             android:hint="enter lbs"
             android:inputType="number"
             android:textColor="#FFFFFF"
-            android:textColorHint="#E3C4C4" />
+            android:textColorHint="#E3C4C4"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/plate_output_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
+            android:layout_gravity="bottom|center"
             android:gravity="center"
             android:text="Plates"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
     </FrameLayout>
 
 </androidx.wear.widget.BoxInsetLayout>

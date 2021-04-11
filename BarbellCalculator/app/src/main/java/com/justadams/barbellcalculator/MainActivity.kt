@@ -24,23 +24,24 @@ class MainActivity : WearableActivity() {
         setContentView(R.layout.activity_main)
 
         var inputWeightText: EditText = findViewById(R.id.weight_input_text);
-        inputWeightText.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+        // Call calculatePlates on enter
+        inputWeightText.setOnKeyListener { v, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                inputWeightText.text.toString().trim()?.let {calculatePlates(it)}
+                var input: Double? = inputWeightText.text.toString().toDoubleOrNull()
+                input?.let { calculatePlates(input) }
             }
             false
-        })
+        }
 
-       // calculatePlates(inputWeightText.text.toString())
+        calculatePlates(0.0)
 
         // Enables Always-on
         setAmbientEnabled()
     }
 
-    private fun calculatePlates(inputWeightString: String) {
-        var inputWeight: Double = inputWeightString?.toDouble()
+    private fun calculatePlates(inputWeight: Double) {
         // Reduce by the bar weight and then halve to calculate plates on a single side
-        inputWeight = (inputWeight - 45) / 2
+        var calculateWeight = (inputWeight - 45) / 2
 
         var plateReturn: String = "Plates \n"
 
@@ -48,8 +49,8 @@ class MainActivity : WearableActivity() {
         var plateOutputArray = arrayOf<Int>(0, 0, 0, 0, 0, 0)
 
         for (i in availablePlatesArray.indices) {
-            while (inputWeight >= plateWeights[i]) {
-                inputWeight -= plateWeights[i]
+            while (calculateWeight >= plateWeights[i]) {
+                calculateWeight -= plateWeights[i]
                 plateOutputArray[i] += 1
             }
             plateReturn += df.format(plateWeights[i]).toString() + ": " + plateOutputArray[i].toString() + "\n"
