@@ -26,7 +26,6 @@ class MainActivity : WearableActivity() {
         var inputWeightText: EditText = findViewById(R.id.weight_input_text);
         inputWeightText.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                Log.d("TEST", "Input recieved")
                 inputWeightText.text.toString().trim()?.let {calculatePlates(it)}
             }
             false
@@ -39,7 +38,6 @@ class MainActivity : WearableActivity() {
     }
 
     private fun calculatePlates(inputWeightString: String) {
-        Log.d("TEST", "weight: " + inputWeightString)
         var inputWeight: Double = inputWeightString?.toDouble()
         // Reduce by the bar weight and then halve to calculate plates on a single side
         inputWeight = (inputWeight - 45) / 2
