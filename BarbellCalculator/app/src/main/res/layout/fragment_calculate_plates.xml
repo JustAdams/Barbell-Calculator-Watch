@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculatePlatesFragment">
+
+    <EditText
+        android:id="@+id/weight_input_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="enter lbs"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#E3C4C4"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:id="@+id/plate_output_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:gravity="center"
+        android:text="Plates"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+</FrameLayout>

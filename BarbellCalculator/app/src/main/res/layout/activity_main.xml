@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.wear.widget.drawer.WearableDrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,34 +10,19 @@
     tools:context=".MainActivity"
     tools:deviceIds="wear">
 
-    <FrameLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/inner_frame_layout_padding"
-        app:layout_boxedEdges="left|right">
+        android:fillViewport="true">
 
-        <EditText
-            android:id="@+id/weight_input_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="enter lbs"
-            android:inputType="number"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#E3C4C4"
-            android:textSize="18sp" />
+        <FrameLayout
+            android:id="@+id/fl_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/inner_frame_layout_padding"
+            app:layout_boxedEdges="left|right"/>
 
-        <TextView
-            android:id="@+id/plate_output_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:gravity="center"
-            android:text="Plates"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp" />
-    </FrameLayout>
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.wear.widget.BoxInsetLayout>
+
+</androidx.wear.widget.drawer.WearableDrawerLayout>
