@@ -3,12 +3,14 @@ package com.justadams.barbellcalculator
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.wear.ambient.AmbientModeSupport
+import androidx.wear.widget.drawer.WearableNavigationDrawerView
 
 class MainActivity : AppCompatActivity(), AmbientModeSupport.AmbientCallbackProvider {
 
     override fun getAmbientCallback(): AmbientModeSupport.AmbientCallback = MyAmbientCallback()
 
     private lateinit var ambientController: AmbientModeSupport.AmbientController
+    private lateinit var wearableNavigationDrawer: WearableNavigationDrawerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,10 @@ class MainActivity : AppCompatActivity(), AmbientModeSupport.AmbientCallbackProv
         // Start on calculate plates fragment
         supportFragmentManager.beginTransaction().replace(R.id.fl_fragment, calculateFragment).commit()
 
+
+        // Top navigation drawer
+        wearableNavigationDrawer = findViewById(R.id.top_navigation_drawer)
+        
 
     }
 
