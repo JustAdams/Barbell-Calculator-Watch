@@ -12,14 +12,29 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/inner_frame_layout_padding"
-        app:boxedEdges="all">
+        android:background="#BA7474"
+        android:padding="@dimen/inner_frame_layout_padding">
 
-        <TextView
-            android:id="@+id/text"
+        <EditText
+            android:id="@+id/weight_input_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
+            android:layout_gravity="center|top"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="enter lbs"
+            android:inputType="number"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#E3C4C4" />
 
+        <TextView
+            android:id="@+id/plate_output_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:text="Plates"
+            android:textColor="#FFFFFF" />
     </FrameLayout>
+
 </androidx.wear.widget.BoxInsetLayout>
